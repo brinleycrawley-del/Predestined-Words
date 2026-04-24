@@ -1,16 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Website Template</title>
-	<link rel="stylesheet" href="./assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <title>Predestined Words</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-	<h1>Website Template</h1>
-	<p>Fork and use this template repo (a.k.a. "boilerplate") for any web project</p>
-	<img src="assets/img/cat.jpg" alt="">
+  <div class="container">
+    <h1>Write whatever is on your heart. Exercise your freedom to think.</h1>
 
-	<script src="./assets/js/main.js"></script>
+    <textarea id="poemInput" placeholder="Begin your poem..."></textarea>
+
+    <div class="output-container">
+      <div class="column">
+        <h3>Original</h3>
+        <div id="originalOutput"></div>
+      </div>
+
+      <div class="column">
+        <h3>System Output</h3>
+        <div id="systemOutput"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
