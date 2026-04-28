@@ -2,13 +2,19 @@ body {
   font-family: Arial, sans-serif;
   background: #111;
   color: #eee;
+
   display: flex;
   justify-content: center;
-  padding: 40px;
+  align-items: center;
+
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
   width: 800px;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 h1 {
