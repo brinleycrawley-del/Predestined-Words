@@ -1,22 +1,18 @@
-input.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  
-  setTimeout(() => {
-  input.value += poem[index];
-}, 50);
-
-if (Math.random() < 0.2) return;
-
-  if (e.key === "Backspace") {
-    input.value = input.value.slice(0, -1);
-    index = Math.max(0, index - 1);
-    return;
+const textContainer = document.querySelector
+(".text-container");
+const phrases = ["Awesome", "Fun", "Challenging", "Fantastic"];
+let phraseIndex = 0;
+let letterIndex = 0;
+function typeEffect() {
+  letterIndex++;
+  const currentPhrase = phrases[phraseindex];
+  textCoontainer.innerHTML = `<h1>Coding is $ {currentPhrase.slice(0, letterIndex)}</h1>`;
+  if(letterIndex === currentPhrase.length) {
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    letterIndex = 0;
+    setTimeout(typeEffect, 1000);
+  } else {
+    setTimeout(typeEffect, 300);
   }
-
-  if (index >= poem.length) {
-    index = 0;
-  }
-
-  input.value += poem[index];
-  index++;
-});
+}
+typeEffect();
