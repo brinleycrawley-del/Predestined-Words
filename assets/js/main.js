@@ -1,50 +1,22 @@
-const input = document.getElementById("poemInput");
-const originalOutput = document.getElementById("originalOutput");
-const systemOutput = document.getElementById("systemOutput");
+input.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  
+  setTimeout(() => {
+  input.value += poem[index];
+}, 50);
 
-// words the system might "optimize" into
-const replacements = [
-  "efficiency",
-  "clarity",
-  "engagement",
-  "optimized",
-  "refined",
-  "improved",
-  "acceptable",
-  "approved"
-];
+if (Math.random() < 0.2) return;
 
-function alterText(text) {
-  let words = text.split(" ");
+  if (e.key === "Backspace") {
+    input.value = input.value.slice(0, -1);
+    index = Math.max(0, index - 1);
+    return;
+  }
 
-  return words.map(word => {
-    let rand = Math.random();
+  if (index >= poem.length) {
+    index = 0;
+  }
 
-    // 20% chance to replace word
-    if (rand < 0.2) {
-      return replacements[Math.floor(Math.random() * replacements.length)];
-    }
-
-    // 15% chance to delete word
-    if (rand < 0.35) {
-      return "";
-    }
-
-    // 15% chance to strike through word
-    if (rand < 0.5) {
-      return `<span class="glitch">${word}</span>`;
-    }
-
-    return word;
-  }).join(" ");
-}
-
-input.addEventListener("input", () => {
-  const text = input.value;
-
-  // show original (faded)
-  originalOutput.textContent = text;
-
-  // system version (altered)
-  systemOutput.innerHTML = alterText(text);
+  input.value += poem[index];
+  index++;
 });
