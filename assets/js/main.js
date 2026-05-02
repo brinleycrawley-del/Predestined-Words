@@ -1,13 +1,13 @@
 const textContainer = document.querySelector(".text-container");
 const phrases = ["Awesome", "Fun", "Challenging", "Fantastic"];
-
 let phraseIndex = 0;
 let letterIndex = 0;
 
 function typeEffect() {
   letterIndex++;
-  const currentPhrase = phrases[phraseindex];
-  textCoontainer.innerHTML = `<h1>Coding is $ {currentPhrase.slice(0, letterIndex)}</h1>`;
+  const currentPhrase = phrases[phraseIndex];
+  textContainer.innerHTML = `<h1>Coding is ${currentPhrase.slice(0, letterIndex)}</h1>`;
+
   if(letterIndex === currentPhrase.length) {
     phraseIndex = (phraseIndex + 1) % phrases.length;
     letterIndex = 0;
