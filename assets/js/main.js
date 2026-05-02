@@ -1,8 +1,9 @@
-const textContainer = document.querySelector
-(".text-container");
+const textContainer = document.querySelector(".text-container");
 const phrases = ["Awesome", "Fun", "Challenging", "Fantastic"];
+
 let phraseIndex = 0;
 let letterIndex = 0;
+
 function typeEffect() {
   letterIndex++;
   const currentPhrase = phrases[phraseindex];
