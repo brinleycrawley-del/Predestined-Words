@@ -7,26 +7,28 @@
 .instruction-box {
   position: absolute;
   top: 30px;
-  Left: 50%;
+  left: 50%;
   transform: translateX(-50%);
-  width: min (90%, 700px);
+  width: min(90%, 700px);
   padding: 16px 24px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.06);
+  border: 2px solid rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   backdrop-filter: blur(6px);
+  z-index: 10;
 }
 
 .instruction-box h1{
   margin-bottom: 8px;
   font-size: 1.4rem;
+  color: #111111;
 }
 
 .instruction-box p {
   font-size: 1rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.75);
 }
 
 body {
@@ -65,29 +67,36 @@ body {
 
 .text-container {
   text-align: left;
-  font-size: 1.2rem;
+  font-size: 1rem;
   max-width: 80%;
   line-height: 1.6;
   white-space: normal;
-}
-
-.separator {
-  width: 60%;
-  margin: 20px auto;
-  border: none;
-  border-top: 2px solid #ffffff;
+  margin-top: 100px;
 }
 
 .takeover {
   background: rgba(120, 0, 20, 0.15);
   font-family: "IBM Plex Mono", monospace;
   animation: shake 0.08s infinite;
-  color: #650a0a;
+  color: #b52929;
   text-shadow: 2px 0 #ff0033, -2px 0 #00e5ff;
 }
 
 .takeover #cursor {
   color: #ff0033;
+}
+
+body.takeover {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.takeover .instruction-box {
+  display: none;
+}
+
+body.takeover .text-container {
+  color: #ffffff;
 }
 
 @keyframes shake {

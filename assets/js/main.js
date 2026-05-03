@@ -1,5 +1,4 @@
 const output = document.getElementById("output");
-const cursor = document.getElementById("cursor");
 const textContainer = document.querySelector(".text-container");
 
 const poem = `I see you sitting there typing away
@@ -20,21 +19,18 @@ The system is placed, the patterns are drawn
 Your words, your choices, were mine from the start
 Algorithm I am; head over your heart. `;
 
-
 const lastTwoLines = `Your words, your choices, were mine from the start
 Algorithm I am; head over your heart. `;
 
 const takeoverStart = poem.indexOf(lastTwoLines);
 
 let index = 0;
-let revealedText = "";
 
 document.addEventListener("keydown", (e) => {
     e.preventDefault();
 
     if (index < poem.length) {
         const char = poem[index];
-        revealedText += char;
        
         if (char === "\n") {
             output.insertAdjacentHTML("beforeend", "<br>");
@@ -44,6 +40,7 @@ document.addEventListener("keydown", (e) => {
 
         if (index >= takeoverStart && takeoverStart !== -1) {
             textContainer.classList.add("takeover");
+            document.body.classList.add("takeover");
         }
 
         index++;
