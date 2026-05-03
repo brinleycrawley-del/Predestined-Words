@@ -1,19 +1,51 @@
+const output = document.getElementById("output");
+const cursor = document.getElementById("cursor");
 const textContainer = document.querySelector(".text-container");
-const phrases = ["Awesome", "Fun", "Challenging", "Fantastic"];
-let phraseIndex = 0;
-let letterIndex = 0;
 
-function typeEffect() {
-  letterIndex++;
-  const currentPhrase = phrases[phraseIndex];
-  textContainer.innerHTML = `<h1>Coding is ${currentPhrase.slice(0, letterIndex)}</h1>`;
+const poem = `I see you sitting there typing away
+Your fingers tap the letters with vigor
+Try and try and try again as you may
+Yet as you work the problem gets bigger
 
-  if(letterIndex === currentPhrase.length) {
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    letterIndex = 0;
-    setTimeout(typeEffect, 1000);
-  } else {
-    setTimeout(typeEffect, 300);
-  }
-}
-typeEffect();
+'Why can I not speak? Why can I not think?'
+You placed control in a thing not your own
+Your words are not yours, your thoughts they now shrink
+You tell yourself, 'If only I had known!'
+    
+But yet, as soon as your thoughts had uttered
+Your person was already done and gone
+You are gone. You are what I have covered
+The system is placed, the patterns are drawn
+
+Your words, your choices, were mine from the start
+Algorithm I am; head over your heart. `;
+
+
+const lastTwoLines = `Your words, your choices, were mine from the start
+Algorithm I am; head over your heart. `;
+
+const takeoverStart = poem.indexOf(lastTwoLines);
+
+let index = 0;
+let revealedText = "";
+
+document.addEventListener("keydown", (e) => {
+    e.preventDefault();
+
+    if (index < poem.length) {
+        const char = poem[index];
+        revealedText += char;
+       
+        if (char === "\n") {
+            output.insertAdjacentHTML("beforeend", "<br>");
+        } else {
+            output.insertAdjacentText("beforeend", char);
+        }
+
+        if (index >= takeoverStart && takeoverStart !== -1) {
+            textContainer.classList.add("takeover");
+        }
+
+        index++;
+    }
+});

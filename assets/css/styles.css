@@ -4,17 +4,97 @@
   box-sizing: border-box;
 }
 
+.instruction-box {
+  position: absolute;
+  top: 30px;
+  Left: 50%;
+  transform: translateX(-50%);
+  width: min (90%, 700px);
+  padding: 16px 24px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.instruction-box h1{
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+}
+
+.instruction-box p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #3991f5;
-  font-family: "Poppins", sans-serif;
-  color: #ffffff;
+  background-color: hsl(0, 0%, 100%);
+  font-family: "Cormorant Garamond", serif;
+  color: #000000;
   overflow: hidden;
+  padding-top: 120px;
 }
+
+#fakeInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  } 
+}
+
 .text-container {
-  text-align: center;
-  font-size: 2.5rem;
+  text-align: left;
+  font-size: 1.2rem;
+  max-width: 80%;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+.separator {
+  width: 60%;
+  margin: 20px auto;
+  border: none;
+  border-top: 2px solid #ffffff;
+}
+
+.takeover {
+  background: rgba(120, 0, 20, 0.15);
+  font-family: "IBM Plex Mono", monospace;
+  animation: shake 0.08s infinite;
+  color: #650a0a;
+  text-shadow: 2px 0 #ff0033, -2px 0 #00e5ff;
+}
+
+.takeover #cursor {
+  color: #ff0033;
+}
+
+@keyframes shake {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-2px, 0); }
+  80% { transform: translate(2px, 1px); }
+  100% { transform: translate(0,0); }
 }
